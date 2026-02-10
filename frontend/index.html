@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Audio Translation</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎤 Real-Time Audio Translation</h1>
+            <p class="subtitle">Speak in one language, hear it in another - instantly</p>
+        </header>
+
+        <div class="config-section">
+            <div class="language-selector">
+                <div class="selector-group">
+                    <label for="source-language">Source Language</label>
+                    <select id="source-language" class="language-select">
+                        <option value="en-US">English (US)</option>
+                        <option value="es-ES">Spanish (Spain)</option>
+                        <option value="es-US">Spanish (US)</option>
+                        <option value="fr-FR">French</option>
+                        <option value="de-DE">German</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="pt-BR">Portuguese (Brazil)</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="ko-KR">Korean</option>
+                        <option value="zh-CN">Chinese (Mandarin)</option>
+                    </select>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="selector-group">
+                    <label for="target-language">Target Language</label>
+                    <select id="target-language" class="language-select">
+                        <option value="es-ES">Spanish (Spain)</option>
+                        <option value="en-US">English (US)</option>
+                        <option value="es-US">Spanish (US)</option>
+                        <option value="fr-FR">French</option>
+                        <option value="de-DE">German</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="pt-BR">Portuguese (Brazil)</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="ko-KR">Korean</option>
+                        <option value="zh-CN">Chinese (Mandarin)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="start-btn" class="btn btn-primary">
+                    <span class="btn-icon">▶</span>
+                    Start Translation
+                </button>
+                <button id="stop-btn" class="btn btn-danger" disabled>
+                    <span class="btn-icon">⏹</span>
+                    Stop
+                </button>
+            </div>
+
+            <div class="status-bar">
+                <div class="status-indicator" id="status-indicator"></div>
+                <span id="status-text" class="status-text">Ready to start</span>
+            </div>
+        </div>
+
+        <div class="transcripts-section">
+            <div class="transcript-panel">
+                <h3>Original Text</h3>
+                <div class="partial-transcript" id="partial-transcript">
+                    <em>Speak to see live transcription...</em>
+                </div>
+                <div class="transcript-box" id="original-transcript">
+                    <!-- Final transcripts appear here -->
+                </div>
+            </div>
+
+            <div class="transcript-panel">
+                <h3>Translated Text</h3>
+                <div class="partial-transcript" id="translated-preview">
+                    <em>Translation will appear here...</em>
+                </div>
+                <div class="transcript-box" id="translated-transcript">
+                    <!-- Translated text appears here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="metrics-section">
+            <div class="metric">
+                <span class="metric-label">Connection:</span>
+                <span id="connection-status" class="metric-value">Disconnected</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Chunks Processed:</span>
+                <span id="chunks-processed" class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Translations:</span>
+                <span id="translations-count" class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Avg Latency:</span>
+                <span id="avg-latency" class="metric-value">--</span>
+            </div>
+        </div>
+
+        <footer>
+            <p class="info-text">
+                🔒 Audio is processed in real-time and not stored.
+                Powered by AWS Transcribe, Translate, and Polly.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/audio-capture.js"></script>
+    <script src="/static/js/audio-playback.js"></script>
+    <script src="/static/js/websocket-client.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+websockets==12.0
+python-multipart==0.0.6
+
+# AWS Services
+boto3==1.34.34
+amazon-transcribe==0.6.2
+aioboto3==12.3.0
+
+# Deepgram (Alternative Transcription - Better Accuracy)
+# Pin to v3.x for async support (v5.x is synchronous)
+deepgram-sdk>=3.0.0,<4.0.0
+
+# Environment & Config
+python-dotenv==1.0.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Async Support
+aiofiles==23.2.1
+
+# Logging
+python-json-logger==2.0.7
